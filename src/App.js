@@ -1,24 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import { Routes, Route } from "react-router-dom";
+import "swiper/scss";
+import Main from "./components/layout/Main";
+import HomePage from "./page/HomePage";
+import Banner from "./components/Banner/Banner";
+import MoviePage from "./page/MoviePage";
+import MovieDetailsPage from "./page/MovieDetailsPage";
+// https://api.themoviedb.org/3/search/movie?api_key=57d1b83a9bfbedbc9e834590367080e6&query='home'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Routes>
+        <Route element={<Main></Main>}>
+          <Route
+            path="/"
+            element={
+              <>
+                <Banner></Banner>
+                <HomePage></HomePage>
+              </>
+            }
+          ></Route>
+          <Route path="/movie" element={<MoviePage></MoviePage>}></Route>
+          <Route
+            path="/movie/:movieId"
+            element={<MovieDetailsPage></MovieDetailsPage>}
+          ></Route>
+        </Route>
+      </Routes>
+    </>
   );
 }
 
