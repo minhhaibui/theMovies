@@ -1,25 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import useSWR from "swr";
-import { apiKey, fetcher } from "../config/config";
+import { apiKey, fetcher, tmdbAPI } from "../config/config";
 import { SwiperSlide, Swiper } from "swiper/react";
 import MovieCard from "../components/movies/MovieCard";
-
-// https://api.themoviedb.org/3/movie/{movie_id}?api_key=<<api_key>>
 const MovieDetailsPage = () => {
   const { movieId } = useParams();
   const [movieDetail, setMovieDetail] = useState([]);
-  const { data } = useSWR(
-    `https://api.themoviedb.org/3/movie/${movieId}?api_key=${apiKey}`,
-    fetcher
-  );
-  // console.log("data detail", data);
+  const { data } = useSWR(tmdbAPI.getMovieDetail(movieId), fetcher);
   useEffect(() => {
     if (data) setMovieDetail(data);
   }, [data]);
-  // console.log("movie Detail", movieDetail);
   const { backdrop_path, poster_path, title, genres, overview } = movieDetail;
-  // genres.map((item) => console.log("id", item.name));
   return (
     <>
       <div className="w-full h-[600px] relative">
@@ -65,10 +57,7 @@ const MovieDetailsPage = () => {
 
 function MovieCredits() {
   const { movieId } = useParams();
-  const { data } = useSWR(
-    `https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=${apiKey}`,
-    fetcher
-  );
+  const { data } = useSWR(tmdbAPI.getMovieMeta(movieId, "credits"), fetcher);
   if (!data) return null;
   const { cast } = data;
   if (!cast || cast.length <= 0) return null;
@@ -93,10 +82,7 @@ function MovieCredits() {
 
 function MovieVideo() {
   const { movieId } = useParams();
-  const { data } = useSWR(
-    `https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=${apiKey}`,
-    fetcher
-  );
+  const { data } = useSWR(tmdbAPI.getMovieMeta(movieId, "videos"), fetcher);
   if (!data) return null;
   const { results } = data;
   if (!results || results.length <= 0) return null;
@@ -106,7 +92,7 @@ function MovieVideo() {
       <div className="flex flex-col gap-10">
         {results.slice(0, 2).map((item) => (
           <div className="" key={item.id}>
-            <h3 className="mb-5 text-xl font-medium p-3 bg-secondary inline-block">
+            <h3 className="mb-5 text-xl font-medium p-3 bg-primary inline-block">
               {item.name}
             </h3>
             <div key={item.id} className="w-full aspect-video">
@@ -130,10 +116,7 @@ function MovieVideo() {
 
 function MovieSimilar() {
   const { movieId } = useParams();
-  const { data } = useSWR(
-    `https://api.themoviedb.org/3/movie/${movieId}/similar?api_key=${apiKey}`,
-    fetcher
-  );
+  const { data } = useSWR(tmdbAPI.getMovieMeta(movieId, "similar"), fetcher);
   if (!data) return null;
   const { results } = data;
   if (!results || results.length <= 0) return null;

@@ -19,3 +19,26 @@
     height: 100%;
   }
 }
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  gap: 5px;
+  .naviga_active {
+    @apply bg-primary;
+  }
+  .pagi-num {
+    padding: 8px 15px;
+    cursor: pointer;
+    border-radius: 3px;
+    font-weight: 400;
+  }
+  .pagi-num:hover {
+    @apply bg-primary;
+  }
+  .nav_next {
+    font-size: 30px;
+    padding: 1px 11px;
+  }
+}

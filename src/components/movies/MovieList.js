@@ -1,16 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { SwiperSlide, Swiper } from "swiper/react";
 import MovieCard from "./MovieCard";
-
-import { fetcher } from "../../config/config";
+import { fetcher, tmdbAPI } from "../../config/config";
 import useSWR from "swr";
-// https://api.themoviedb.org/3/movie/now_playing?api_key=57d1b83a9bfbedbc9e834590367080e6
 const MovieList = ({ type = "now_playing" }) => {
   const [movies, setMovies] = useState([]);
-  const { data } = useSWR(
-    `https://api.themoviedb.org/3/movie/${type}?api_key=57d1b83a9bfbedbc9e834590367080e6`,
-    fetcher
-  );
+  const { data } = useSWR(tmdbAPI.getMovieList(type), fetcher);
   useEffect(() => {
     if (data && data.results) setMovies(data.results);
   }, [data]);
