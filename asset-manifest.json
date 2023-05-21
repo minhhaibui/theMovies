@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/theMovies/static/css/main.8ef5ff8a.css",
+    "main.js": "/theMovies/static/js/main.e69329e1.js",
+    "static/js/1.73c14342.chunk.js": "/theMovies/static/js/1.73c14342.chunk.js",
+    "static/js/162.71211954.chunk.js": "/theMovies/static/js/162.71211954.chunk.js",
+    "static/js/637.65e15222.chunk.js": "/theMovies/static/js/637.65e15222.chunk.js",
+    "static/js/787.4492836b.chunk.js": "/theMovies/static/js/787.4492836b.chunk.js",
+    "index.html": "/theMovies/index.html",
+    "main.8ef5ff8a.css.map": "/theMovies/static/css/main.8ef5ff8a.css.map",
+    "main.e69329e1.js.map": "/theMovies/static/js/main.e69329e1.js.map",
+    "1.73c14342.chunk.js.map": "/theMovies/static/js/1.73c14342.chunk.js.map",
+    "162.71211954.chunk.js.map": "/theMovies/static/js/162.71211954.chunk.js.map",
+    "637.65e15222.chunk.js.map": "/theMovies/static/js/637.65e15222.chunk.js.map",
+    "787.4492836b.chunk.js.map": "/theMovies/static/js/787.4492836b.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.8ef5ff8a.css",
+    "static/js/main.e69329e1.js"
+  ]
+}
