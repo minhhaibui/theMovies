@@ -4,6 +4,8 @@ import { fetcher } from "../../config/config";
 import useSWR from "swr";
 import Button from "../button/Button";
 import { useNavigate } from "react-router-dom";
+import { Navigation, Scrollbar, A11y } from "swiper";
+import "swiper/swiper-bundle.min.css";
 const Banner = () => {
   const [movieBanner, setMovieBanner] = useState([]);
   const { data } = useSWR(
@@ -15,7 +17,13 @@ const Banner = () => {
   }, [data]);
   return (
     <section className="banner h-[500px] page-container mb-20 overflow-hidden">
-      <Swiper grabCursor={"true"} slidesPerView={"auto"}>
+      <Swiper
+        grabCursor={"true"}
+        slidesPerView={"auto"}
+        modules={[Navigation, Scrollbar, A11y]}
+        navigation
+        scrollbar={{ draggable: true }}
+      >
         {movieBanner.length > 0 &&
           movieBanner.map((item) => (
             <SwiperSlide key={item.id}>

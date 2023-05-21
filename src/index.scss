@@ -15,10 +15,42 @@
     width: 300px;
     height: auto;
   }
+  .movie-list .swiper-button-prev,
+  .movie-list .swiper-button-next {
+    color: #fff;
+    padding: 25px;
+    border-radius: 50%;
+    background: rgba(128, 128, 128, 0.808);
+  }
+  .movie-list .swiper-button-prev:hover,
+  .movie-list .swiper-button-next:hover {
+    background: gray;
+  }
+  .movie-list .swiper-button-prev:after,
+  .movie-list .swiper-button-next:after {
+    font-size: 20px;
+  }
+
+  .banner .swiper-button-prev,
+  .banner .swiper-button-next {
+    color: #fff;
+    padding: 30px;
+    border-radius: 50%;
+    background: rgba(128, 128, 128, 0.808);
+  }
+  .banner .swiper-button-prev:hover,
+  .banner .swiper-button-next:hover {
+    background: gray;
+  }
+  .banner .swiper-button-prev:after,
+  .banner .swiper-button-next:after {
+    font-size: 30px;
+  }
   .banner .swiper {
     height: 100%;
   }
 }
+
 .pagination {
   display: flex;
   justify-content: center;
