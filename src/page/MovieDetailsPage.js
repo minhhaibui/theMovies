@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import useSWR from "swr";
-import { apiKey, fetcher, tmdbAPI } from "../config/config";
+import { fetcher, tmdbAPI } from "../config/config";
 import { SwiperSlide, Swiper } from "swiper/react";
 import MovieCard from "../components/movies/MovieCard";
+import { Navigation, Scrollbar, A11y } from "swiper";
+import "swiper/swiper-bundle.min.css";
+
 const MovieDetailsPage = () => {
   const { movieId } = useParams();
   const [movieDetail, setMovieDetail] = useState([]);
@@ -122,10 +125,17 @@ function MovieSimilar() {
   if (!results || results.length <= 0) return null;
   console.log("movie similar", data);
   return (
-    <div className="py-10">
+    <div className="py-10 similar">
       <h2 className="text-3xl font-medium mb-10 ">Movies Similar</h2>
       <div className="movie-list">
-        <Swiper grabCursor={"true"} spaceBetween={40} slidesPerView={"auto"}>
+        <Swiper
+          grabCursor={"true"}
+          spaceBetween={40}
+          slidesPerView={"auto"}
+          modules={[Navigation, Scrollbar, A11y]}
+          navigation
+          scrollbar={{ draggable: true }}
+        >
           {results.length > 0 &&
             results.map((item) => (
               <SwiperSlide key={item.id}>

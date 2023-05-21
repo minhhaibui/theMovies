@@ -31,6 +31,22 @@
     font-size: 20px;
   }
 
+  .similar .swiper-button-prev,
+  .similar .swiper-button-next {
+    color: #fff;
+    padding: 25px;
+    border-radius: 50%;
+    background: rgba(128, 128, 128, 0.808);
+  }
+  .similar .swiper-button-prev:hover,
+  .similar .swiper-button-next:hover {
+    background: gray;
+  }
+  .similar .swiper-button-prev:after,
+  .similar .swiper-button-next:after {
+    font-size: 20px;
+  }
+
   .banner .swiper-button-prev,
   .banner .swiper-button-next {
     color: #fff;

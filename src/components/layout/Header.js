@@ -5,14 +5,18 @@ const Header = () => {
     <header className="header flex items-center justify-center gap-x-5 text-white py-10 mb-10">
       <NavLink
         to={"/"}
-        className={({ isActive }) => (isActive ? "text-primary" : "")}
+        className={({ isActive }) =>
+          isActive ? "text-primary text-2xl" : "text-2xl"
+        }
       >
         Home
       </NavLink>
 
       <NavLink
         to={"/movie"}
-        className={({ isActive }) => (isActive ? "text-primary" : "")}
+        className={({ isActive }) =>
+          isActive ? "text-primary text-2xl" : "text-2xl"
+        }
       >
         Movies
       </NavLink>

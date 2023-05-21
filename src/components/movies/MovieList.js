@@ -5,6 +5,7 @@ import { fetcher, tmdbAPI } from "../../config/config";
 import useSWR from "swr";
 import { Navigation, Scrollbar, A11y } from "swiper";
 import "swiper/swiper-bundle.min.css";
+
 const MovieList = ({ type = "now_playing" }) => {
   const [movies, setMovies] = useState([]);
   const { data } = useSWR(tmdbAPI.getMovieList(type), fetcher);
